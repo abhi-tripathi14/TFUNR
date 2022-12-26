@@ -1,5 +1,5 @@
-provider "aws" { 
-    region = "us-east-2"
+provider "aws" {
+  region = "us-east-2"
 }
 
 resource "aws_instance" "example" {
@@ -7,15 +7,15 @@ resource "aws_instance" "example" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.SecGroup.id]
 
-  user_data                   = <<-EOF
-#!/bin/bash
-      echo "Hello, Terraform World" >index.html
+  user_data = <<-EOF
+      #!/bin/bash
+      echo "Hello, World" >index.html
       nohub busybox httpd -f -p 8080 &
       EOF
-    
+
   user_data_replace_on_change = true
   tags = {
-    "Name" = "Terraform-Abhinav"
+    Name = "Terraform-Abhinav"
   }
 }
 
