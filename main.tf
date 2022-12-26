@@ -9,9 +9,10 @@ resource "aws_instance" "example" {
 
   user_data                   = <<-EOF
 #!/bin/bash
-echo"Hello, World" >index.html
-nohub busybox httpd -f -p 8080 &
-EOF
+      echo "Hello, Terraform World" >index.html
+      nohub busybox httpd -f -p 8080 &
+      EOF
+    
   user_data_replace_on_change = true
   tags = {
     "Name" = "Terraform-Abhinav"
